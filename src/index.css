@@ -2,9 +2,23 @@
 @tailwind components;
 @tailwind utilities;
 
-/* :root {
+:root {
   font-synthesis: none;
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-} */
+}
+
+/* Scrollbar css */
+::-webkit-scrollbar {
+  @apply w-2;
+}
+::-webkit-scrollbar-track {
+  @apply bg-gray;
+}
+::-webkit-scrollbar-thumb {
+  @apply bg-slate-700 rounded-md;
+}
+::-webkit-scrollbar-thumb:hover {
+  @apply bg-black;
+}
