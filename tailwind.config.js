@@ -7,8 +7,9 @@ export default {
         black: "#000000",
         gray: "#fafafa",
         white: "#ffffff",
-        teal: "#27a776",
-        darkGray: "#161718",
+        dark: "#1a1f24",
+        accent: "#0ea2bd",
+        darkGray: "#44505c",
         borderGray: "color-mix(in srgb, #fafafa, transparent 90%)",
       },
       fontFamily: {

@@ -10,15 +10,16 @@ const categoriesSlice = createSlice({
     builder.addCase(getCategories.fulfilled, (_, action) => action.payload);
   },
 });
+export default categoriesSlice.reducer;
 
 // async actions
 export const getCategories = createAsyncThunk(
   "categories/getCategories",
   async () => {
     const response = await fakeStoreApi.get("/products/categories");
-    console.log(response);
     return response.data;
   }
 );
 
-export default categoriesSlice.reducer;
+// selectors
+export const categoriesSelector = (state) => state.categories;
