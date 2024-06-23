@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
-import { useLocation } from "react-router-dom";
-import { GiShoppingCart } from "react-icons/gi";
+import { useLocation, Link } from "react-router-dom";
+import { AiOutlineShoppingCart } from "react-icons/ai";
 import { RxHamburgerMenu } from "react-icons/rx";
 import { IoMdClose } from "react-icons/io";
 import Navbar from "./Navbar";
@@ -17,14 +17,14 @@ const Header = () => {
     const [isOpen, setIsOpen] = useState(false);
 
     return (
-        <header className="flex px-4 sticky top-0 z-50 items-center bg-black min-h-16 shadow">
+        <header className="flex px-4 sticky top-0 z-50 items-center bg-white min-h-16 shadow-lg">
             {/* logo */}
-            <div className="flex gap-2 text-3xl lg:text-4xl items-center font-cardo">
-                <GiShoppingCart className="text-teal" />
+            <Link to="/" className="flex gap-1 text-3xl lg:text-4xl items-center font-cardo text-accent">
+                <AiOutlineShoppingCart />
                 <h1>SmartCart</h1>
-            </div>
+            </Link>
             {/* hamburger and close icon */}
-            <button className="ml-auto text-2xl block lg:hidden text-teal" onClick={() => setIsOpen(prevIsOpen => !prevIsOpen)}>
+            <button className="ml-auto text-2xl block lg:hidden text-accent" onClick={() => setIsOpen(prevIsOpen => !prevIsOpen)}>
                 {isOpen ? <IoMdClose /> :
                     <RxHamburgerMenu />}
 

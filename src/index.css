@@ -14,10 +14,10 @@
   @apply w-2;
 }
 ::-webkit-scrollbar-track {
-  @apply bg-gray;
+  @apply bg-darkGray;
 }
 ::-webkit-scrollbar-thumb {
-  @apply bg-slate-700 rounded-md;
+  @apply bg-accent rounded-md;
 }
 ::-webkit-scrollbar-thumb:hover {
   @apply bg-black;
