@@ -11,7 +11,7 @@
 
 /* Scrollbar css */
 ::-webkit-scrollbar {
-  @apply w-2;
+  @apply w-2 h-2;
 }
 ::-webkit-scrollbar-track {
   @apply bg-darkGray;
