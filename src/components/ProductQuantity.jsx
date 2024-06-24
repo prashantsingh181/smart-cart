@@ -11,7 +11,11 @@ const ProductQuantity = ({ value, increment, decrement }) => {
         <GrSubtractCircle />
       </button>
       <span className="border rounded px-2">{value}</span>
-      <button onClick={increment} className="text-accent">
+      <button
+        onClick={increment}
+        className="text-accent disabled:text-slate-300"
+        disabled={value === 10}
+      >
         <GrAddCircle />
       </button>
     </div>

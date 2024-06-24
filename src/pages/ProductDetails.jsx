@@ -25,6 +25,7 @@ const ProductDetails = () => {
   const similarCategoryProducts = useSelector((state) =>
     productsByCategorySelector(state, category)
   );
+  const otherItems = similarCategoryProducts.filter(item => product.id !== item.id)
 
   const isWishListed = Boolean(
     useSelector((state) => wishlistByIdSelector(state, product.id))
@@ -40,7 +41,7 @@ const ProductDetails = () => {
               className="rounded max-h-full max-w-full"
             />
           </section>
-          <section className="flex flex-col gap-4">
+          <section className="flex flex-col gap-4 px-4">
             <h2 className="text-2xl">{product.title}</h2>
             <div className="bg-gray shadow bg-opacity-50 backdrop-blur-sm p-1 rounded font-bold self-start">
               <Rating rate={product.rating.rate} count={product.rating.count} />
@@ -56,14 +57,13 @@ const ProductDetails = () => {
             {/* Quantity for product here */}
             {/* cart and wishlist button */}
             <div className="flex flex-col lg:flex-row gap-10">
-              <button className="bg-accent text-white rounded px-6 py-3 flex gap-2 items-center justify-center text-lg" onClick={() => dispatch(addItemToCart({product, quantity: 1}))}>
+              <button className="primary-button flex gap-2 items-center justify-center" onClick={() => dispatch(addItemToCart({ product, quantity: 1 }))}>
                 <AiOutlineShoppingCart className="text-xl" />
                 <span>ADD TO CART</span>
               </button>
               <button
-                className={`text-center border border-accent text-accent ${
-                  isWishListed ? "bg-slate-300" : "bg-white"
-                } rounded px-6 py-3 flex gap-2 items-center justify-center text-lg`}
+                className={`secondary-button ${isWishListed ? "bg-slate-300" : "bg-white"
+                  } flex gap-2 items-center justify-center`}
                 onClick={() => dispatch(wishlistToggle(product))}
               >
                 {isWishListed ? (
@@ -88,7 +88,7 @@ const ProductDetails = () => {
       {category && (
         <section className="flex flex-col gap-4 my-4">
           <h3 className="text-xl font-bold">See more in {category}</h3>
-          <ProductListRow products={similarCategoryProducts} />
+          <ProductListRow products={otherItems} />
         </section>
       )}
     </>

@@ -21,7 +21,7 @@ const ScrollToTop = ({ scrollRef }) => {
         }
         scrollRef.current.addEventListener('scroll', handleScroll)
         return () => {
-            scrollRef.current.removeEventListener('scroll', handleScroll)
+            scrollRef.current?.removeEventListener('scroll', handleScroll)
         }
     }, [])
     return (

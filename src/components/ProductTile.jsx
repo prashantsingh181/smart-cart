@@ -5,7 +5,7 @@ export function ProductTile({ product }) {
     return (
         <Link to={`/products/${product.id}`} className="bg-white text-black shadow-lg rounded-lg">
             {/* image of product */}
-            <div className="h-80 relative flex items-center justify-center">
+            <div className="h-3/4 relative flex items-center justify-center">
                 <img src={product.image} alt="product" className="rounded-tr-lg rounded-tl-lg max-w-full max-h-full"></img>
                 {/* rating of product */}
                 {product.rating && <div className="absolute bottom-3 left-3 bg-gray shadow bg-opacity-50 backdrop-blur-sm p-1 rounded text-sm font-bold">
