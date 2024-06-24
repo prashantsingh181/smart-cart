@@ -22,3 +22,11 @@
 ::-webkit-scrollbar-thumb:hover {
   @apply bg-black;
 }
+
+.primary-button {
+  @apply bg-accent text-white px-6 py-3 text-lg rounded;
+}
+
+.secondary-button {
+  @apply border border-accent text-accent px-6 py-3 text-lg rounded;
+}
