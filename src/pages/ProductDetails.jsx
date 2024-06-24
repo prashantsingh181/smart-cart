@@ -28,7 +28,7 @@ const ProductDetails = () => {
   const otherItems = similarCategoryProducts.filter(item => product.id !== item.id)
 
   const isWishListed = Boolean(
-    useSelector((state) => wishlistByIdSelector(state, product.id))
+    useSelector((state) => wishlistByIdSelector(state, product?.id))
   );
   return (
     <>

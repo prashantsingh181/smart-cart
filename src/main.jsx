@@ -7,8 +7,8 @@ import store from './redux/store.js'
 import { getCategories } from './redux/slices/categories.js'
 import { getProducts } from './redux/slices/products.js'
 
-await store.dispatch(getCategories())
-await store.dispatch(getProducts());
+store.dispatch(getCategories())
+store.dispatch(getProducts());
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
