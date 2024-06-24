@@ -1,12 +1,15 @@
 import { useParams } from "react-router-dom"
-import { useSelector } from "react-redux";
+import { useSelector, useDispatch } from "react-redux";
 import { productByIdSelector, productsByCategorySelector } from "../redux/slices/products";
+import { wishlistByIdSelector, wishlistToggle } from "../redux/slices/wishlist";
 import { AiOutlineShoppingCart } from "react-icons/ai";
-import { FaRegHeart } from "react-icons/fa";
+import { FaRegHeart, FaHeart } from "react-icons/fa";
 import Rating from "../components/Rating";
 import ProductListRow from "../components/ProductListRow";
 
 const ProductDetails = () => {
+    const dispatch = useDispatch();
+
     // getting productId from URL and getting corresponding product details from redux store
     const { productId } = useParams();
     const product = useSelector((state) => productByIdSelector(state, Number(productId)))
@@ -14,7 +17,10 @@ const ProductDetails = () => {
     // extracting category of product and getting similar items in that category
     const category = product && product.category;
     const similarCategoryProducts = useSelector((state) => productsByCategorySelector(state, category))
+    console.log(similarCategoryProducts)
 
+    const isWishListed = Boolean(useSelector((state) => wishlistByIdSelector(state, product.id)))
+    console.log(isWishListed)
     return (<>
         {product && <div className="grid grid-flow-row grid-cols-1 lg:grid-cols-2">
             <section className="h-96 flex justify-center items-center">
@@ -32,9 +38,9 @@ const ProductDetails = () => {
                 <div className="flex gap-10">
                     <button className="bg-accent text-white rounded px-6 py-3 flex gap-2 items-center text-lg"><AiOutlineShoppingCart className="text-xl" />
                         <span>ADD TO CART</span></button>
-                    <button className="border border-accent text-accent bg-white rounded px-6 py-3 flex gap-2 items-center text-lg">
-                        <FaRegHeart className="text-xl" />
-                        <span>WISHLIST</span>
+                    <button className={`border border-accent text-accent ${isWishListed ? "bg-slate-300" : "bg-white"} rounded px-6 py-3 flex gap-2 items-center text-lg`} onClick={() => dispatch(wishlistToggle(product))}>
+                        {isWishListed ? <FaHeart className="text-xl" /> : <FaRegHeart className="text-xl" />}
+                        <span>{isWishListed ? "WISHLISTED" : "WISHLIST"}</span>
                     </button>
                 </div>
                 <hr />
