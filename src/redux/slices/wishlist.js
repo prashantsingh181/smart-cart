@@ -7,7 +7,7 @@ const wishlistSlice = createSlice({
     wishlistToggle(state, action) {
       const item = state.find((item) => item.id === action.payload.id);
       if (item) {
-        return state.filter((item) => item.id === action.payload.id);
+        return state.filter((item) => item.id !== action.payload.id);
       } else {
         state.push(action.payload);
       }
