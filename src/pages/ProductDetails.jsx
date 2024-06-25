@@ -6,6 +6,7 @@ import {
   productsByCategorySelector,
 } from "../redux/slices/products";
 import { wishlistByIdSelector, wishlistToggle } from "../redux/slices/wishlist";
+import { showSuccessPopup } from "../redux/slices/popup";
 import { AiOutlineShoppingCart } from "react-icons/ai";
 import { FaRegHeart, FaHeart } from "react-icons/fa";
 import Rating from "../components/Rating";
@@ -27,7 +28,9 @@ const ProductDetails = () => {
   const similarCategoryProducts = useSelector((state) =>
     productsByCategorySelector(state, category)
   );
-  const otherItems = similarCategoryProducts.filter(item => product.id !== item.id)
+  const otherItems = similarCategoryProducts.filter(
+    (item) => product.id !== item.id
+  );
 
   const isWishListed = Boolean(
     useSelector((state) => wishlistByIdSelector(state, product?.id))
@@ -37,14 +40,15 @@ const ProductDetails = () => {
   const [count, setCount] = useState(1);
 
   function increment() {
-    setCount(prevCount => prevCount + 1);
+    setCount((prevCount) => prevCount + 1);
   }
   function decrement() {
-    setCount(prevCount => prevCount - 1);
+    setCount((prevCount) => prevCount - 1);
   }
 
   function addingItemToCart() {
     dispatch(addItemToCart({ product, quantity: count }));
+    dispatch(showSuccessPopup("Added to cart!"));
     setCount(1);
   }
   return (
@@ -72,17 +76,32 @@ const ProductDetails = () => {
               <span>inclusive of all taxes</span>
             </div>
             {/* Quantity for product */}
-            <ProductQuantity value={count} increment={increment} decrement={decrement} />
+            <ProductQuantity
+              value={count}
+              increment={increment}
+              decrement={decrement}
+            />
             {/* cart and wishlist button */}
             <div className="flex flex-col lg:flex-row gap-10">
-              <button className="primary-button flex gap-2 items-center justify-center" onClick={addingItemToCart}>
+              <button
+                className="primary-button flex gap-2 items-center justify-center"
+                onClick={addingItemToCart}
+              >
                 <AiOutlineShoppingCart className="text-xl" />
                 <span>ADD TO CART</span>
               </button>
               <button
-                className={`secondary-button ${isWishListed ? "bg-slate-300" : "bg-white"
-                  } flex gap-2 items-center justify-center`}
-                onClick={() => dispatch(wishlistToggle(product))}
+                className={`secondary-button ${
+                  isWishListed ? "bg-slate-300" : "bg-white"
+                } flex gap-2 items-center justify-center`}
+                onClick={() => {
+                  dispatch(wishlistToggle(product));
+                  dispatch(
+                    showSuccessPopup(
+                      `${isWishListed ? "Removed from" : "Added to"} Wishlist!`
+                    )
+                  );
+                }}
               >
                 {isWishListed ? (
                   <FaHeart className="text-xl" />

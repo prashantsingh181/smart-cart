@@ -2,25 +2,17 @@ import { createSlice } from "@reduxjs/toolkit";
 
 const popupSlice = createSlice({
   name: "popup",
-  initialState: { isVisible: true, message: "Hello!", isError: false },
+  initialState: { isVisible: false , message: "", isError: true },
   reducers: {
     showSuccessPopup(state, action) {
       state.isVisible = true;
       state.message = action.payload;
       state.isError = false;
-      setTimeout(() => {
-        state.isVisible = false;
-        state.message = "";
-      }, 3000);
     },
     showErrorPopup(state, action) {
       state.isVisible = true;
       state.message = action.payload;
       state.isError = true;
-      setTimeout(() => {
-        state.isVisible = false;
-        state.message = "";
-      }, 3000);
     },
     hidePopup(state) {
       state.isVisible = false;

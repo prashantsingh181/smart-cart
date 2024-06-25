@@ -28,8 +28,9 @@ const HorizontalProductTile = ({
           increment={incrementQuantity}
           decrement={decrementQuantity}
         />
-        <span className="text-red-500 font-bold">{`${import.meta.env.VITE_CURRENCY || ""
-          }${product.price * product.quantity}`}</span>
+        <span className="text-red-500 font-bold">{`${
+          import.meta.env.VITE_CURRENCY || ""
+        }${product.price * product.quantity}`}</span>
       </div>
     </div>
   );

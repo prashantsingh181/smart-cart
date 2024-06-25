@@ -12,11 +12,21 @@ const wishlistSlice = createSlice({
         state.push(action.payload);
       }
     },
+    addToWishList(state, action) {
+      const item = state.find((item) => item.id === action.payload.id);
+      if (!item) {
+        state.push(action.payload);
+      }
+    },
+    removeFromWishlist(state, action) {
+      console.log(1)
+      return state.filter((item) => item.id !== action.payload);
+    },
   },
 });
 
 export default wishlistSlice.reducer;
-export const { wishlistToggle } = wishlistSlice.actions;
+export const { wishlistToggle, addToWishList, removeFromWishlist } = wishlistSlice.actions;
 
 // selectors
 export const wishlistSelector = (state) => state.wishlist;
