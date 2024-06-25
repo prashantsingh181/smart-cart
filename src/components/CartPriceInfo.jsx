@@ -10,7 +10,7 @@ const CartPriceInfo = ({ products }) => {
       <h3 className="font-bold text-slate-400 font-inter">Price Details ({`${products.length} Quantity`})</h3>
       <div className="flex flex-row justify-between"><span>Total MRP</span><span>{currency}{productTotal}</span></div>
       <div className="flex flex-row justify-between"><span>GST({tax}%)</span><span>{currency}{taxPrice}</span></div>
-      <hr />
+      <hr className="text-slate-300" />
       <div className="flex flex-col gap-6">
         <div className="flex flex-row justify-between font-bold"><span>Total Amount</span><span>{currency}{totalAmount}</span></div>
         <button className="primary-button">PLACE ORDER</button>

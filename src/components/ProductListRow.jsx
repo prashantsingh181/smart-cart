@@ -1,4 +1,4 @@
-import { ProductTile } from "./ProductTile";
+import ProductTile from "./ProductTile";
 
 // component to show products tile in a row
 const ProductListRow = ({ products }) => {
@@ -7,12 +7,7 @@ const ProductListRow = ({ products }) => {
       {products &&
         products.length > 0 &&
         products.map((product) => (
-          <div
-            key={product.id}
-            className="min-w-44 w-44 h-72 shadow-lg rounded border border-gray"
-          >
-            <ProductTile key={product.id} product={product} imageHeight="240" />
-          </div>
+          <ProductTile key={product.id} product={product} className="w-56" />
         ))}
     </div>
   );

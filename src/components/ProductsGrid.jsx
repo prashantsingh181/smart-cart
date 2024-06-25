@@ -1,4 +1,4 @@
-import { ProductTile } from "./ProductTile";
+import ProductTile from "./ProductTile";
 
 // products grid to show products in grid manner
 const ProductsGrid = ({ products, wishListItem }) => {
@@ -7,12 +7,7 @@ const ProductsGrid = ({ products, wishListItem }) => {
       {products &&
         products.length > 0 &&
         products.map((product) => (
-          <div
-            key={product.id}
-            className="h-80 bg-white text-black shadow-lg rounded-lg border border-gray"
-          >
-            <ProductTile product={product} wishListItem={wishListItem} />
-          </div>
+          <ProductTile key={product.id} product={product} wishListItem={wishListItem} />
         ))}
     </div>
   );

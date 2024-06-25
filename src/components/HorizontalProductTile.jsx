@@ -9,7 +9,7 @@ const HorizontalProductTile = ({
   decrementQuantity,
 }) => {
   return (
-    <div className="flex flex-row gap-4 border rounded p-4 relative">
+    <div className="flex flex-row gap-4 border border-slate-300 rounded p-4 relative">
       {closeButton && (
         <button
           className="absolute right-3 top-3 text-red-500"
@@ -28,9 +28,8 @@ const HorizontalProductTile = ({
           increment={incrementQuantity}
           decrement={decrementQuantity}
         />
-        <span className="text-red-500 font-bold">{`${
-          import.meta.env.VITE_CURRENCY || ""
-        }${product.price * product.quantity}`}</span>
+        <span className="text-red-500 font-bold">{`${import.meta.env.VITE_CURRENCY || ""
+          }${product.price * product.quantity}`}</span>
       </div>
     </div>
   );
