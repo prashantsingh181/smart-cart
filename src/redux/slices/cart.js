@@ -33,6 +33,9 @@ const cartSlice = createSlice({
         item.id === productId ? { ...item, quantity: item.quantity - 1 } : item
       );
     },
+    clearCart() {
+      return [];
+    },
   },
 });
 
@@ -42,7 +45,8 @@ export const {
   removeItemFromCart,
   incrementQuantity,
   decrementQuantity,
+  clearCart,
 } = cartSlice.actions;
 
 // selectors
-export const cartSelector = state => state.cart
+export const cartSelector = (state) => state.cart;

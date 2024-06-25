@@ -23,7 +23,7 @@ export default function ProductTile({ product, wishListItem, className }) {
         {/* image of product */}
         <div className="relative flex items-center justify-center">
           {wishListItem && (
-            <button onClick={handleClose} className="text-red-500 absolute top-2 right-2 z-10 rounded-full p-1 bg-slate-300">
+            <button onClick={handleClose} className="text-red-500 absolute top-2 right-2 z-10 rounded-full p-1 bg-gray shadow bg-opacity-50 backdrop-blur-sm">
               <IoMdClose />
             </button>
           )}

@@ -7,7 +7,7 @@ const ProductListRow = ({ products }) => {
       {products &&
         products.length > 0 &&
         products.map((product) => (
-          <ProductTile key={product.id} product={product} className="min-w-56" />
+          <ProductTile key={product.id} product={product} className="min-w-56 w-56" />
         ))}
     </div>
   );

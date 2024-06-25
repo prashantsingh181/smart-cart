@@ -11,7 +11,7 @@
 
 /* Scrollbar css */
 ::-webkit-scrollbar {
-  @apply w-2 h-2;
+  @apply w-1 h-1;
 }
 ::-webkit-scrollbar-track {
   @apply bg-slate-300;
@@ -31,6 +31,9 @@
   @apply border border-accent text-accent px-6 py-3 text-lg rounded;
 }
 
+button:hover {
+  @apply opacity-80;
+}
 button:active {
   @apply transform translate-y-1 shadow-xl;
 }

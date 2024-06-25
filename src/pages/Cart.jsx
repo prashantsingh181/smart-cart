@@ -7,13 +7,14 @@ import {
   removeItemFromCart,
 } from "../redux/slices/cart";
 import { productsSelector } from "../redux/slices/products";
-import { useSelector } from "react-redux";
+import { useSelector, useDispatch } from "react-redux";
+import { useNavigate } from "react-router-dom";
 import HorizontalProductTile from "../components/HorizontalProductTile";
-import { useDispatch } from "react-redux";
 import ProductListRow from "../components/ProductListRow";
 import EmptyCart from "../components/EmptyCart";
 
 const Cart = () => {
+  const navigate = useNavigate();
   const dispatch = useDispatch();
   const cartProducts = useSelector(cartSelector);
   const products = useSelector(productsSelector);
@@ -23,7 +24,7 @@ const Cart = () => {
       {cartProducts && cartProducts.length > 0 ? (
         <>
           <PageHeading heading="Cart" />
-          <section className="grid grid-flow-row grid-cols-1 md:grid-cols-3 lg:grid-cols-2 gap-10 my-6 lg:mx-28 xl:mx-40 2xl:mx-60">
+          <section className="grid grid-flow-row grid-cols-1 md:grid-cols-3 lg:grid-cols-2 gap-10 lg:mx-28 xl:mx-40 2xl:mx-60 py-4">
             <div className="flex flex-col gap-4 md:col-span-2 lg:col-span-1">
               {cartProducts.map((product) => (
                 <HorizontalProductTile
@@ -47,7 +48,7 @@ const Cart = () => {
           </section>
         </>
       ) : (
-        <EmptyCart text="There is nothing in your cart. Lets add some items." buttonText="Add from Wishlist" to="/wishlist" />
+        <EmptyCart text="There is nothing in your cart. Lets add some items." buttonText="Add from Wishlist" onClick={() => navigate("/wishlist")} />
       )}
     </>
   );

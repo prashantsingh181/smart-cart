@@ -13,6 +13,7 @@ import Rating from "../components/Rating";
 import ProductListRow from "../components/ProductListRow";
 import { addItemToCart } from "../redux/slices/cart";
 import ProductQuantity from "../components/ProductQuantity";
+import PageHeading from "../components/PageHeading";
 
 const ProductDetails = () => {
   const dispatch = useDispatch();
@@ -53,6 +54,7 @@ const ProductDetails = () => {
   }
   return (
     <>
+      <PageHeading heading="Product Details" />
       {product && (
         <div className="grid grid-flow-row grid-cols-1 lg:grid-cols-2">
           <section className="h-96 flex justify-center items-center">
