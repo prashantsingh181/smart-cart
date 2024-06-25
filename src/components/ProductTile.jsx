@@ -3,7 +3,7 @@ import Rating from "./Rating"
 
 export function ProductTile({ product }) {
     return (
-        <Link to={`/products/${product.id}`} className="bg-white text-black shadow-lg rounded-lg">
+        <Link to={`/products/${product.id}`}>
             {/* image of product */}
             <div className="h-3/4 relative flex items-center justify-center">
                 <img src={product.image} alt="product" className="rounded-tr-lg rounded-tl-lg max-w-full max-h-full"></img>

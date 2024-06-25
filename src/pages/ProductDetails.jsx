@@ -1,3 +1,4 @@
+import { useState } from "react";
 import { useParams } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
 import {
@@ -10,6 +11,7 @@ import { FaRegHeart, FaHeart } from "react-icons/fa";
 import Rating from "../components/Rating";
 import ProductListRow from "../components/ProductListRow";
 import { addItemToCart } from "../redux/slices/cart";
+import ProductQuantity from "../components/ProductQuantity";
 
 const ProductDetails = () => {
   const dispatch = useDispatch();
@@ -30,6 +32,21 @@ const ProductDetails = () => {
   const isWishListed = Boolean(
     useSelector((state) => wishlistByIdSelector(state, product?.id))
   );
+
+  // local state for quantity
+  const [count, setCount] = useState(1);
+
+  function increment() {
+    setCount(prevCount => prevCount + 1);
+  }
+  function decrement() {
+    setCount(prevCount => prevCount - 1);
+  }
+
+  function addingItemToCart() {
+    dispatch(addItemToCart({ product, quantity: count }));
+    setCount(1);
+  }
   return (
     <>
       {product && (
@@ -54,10 +71,11 @@ const ProductDetails = () => {
               </span>
               <span>inclusive of all taxes</span>
             </div>
-            {/* Quantity for product here */}
+            {/* Quantity for product */}
+            <ProductQuantity value={count} increment={increment} decrement={decrement} />
             {/* cart and wishlist button */}
             <div className="flex flex-col lg:flex-row gap-10">
-              <button className="primary-button flex gap-2 items-center justify-center" onClick={() => dispatch(addItemToCart({ product, quantity: 1 }))}>
+              <button className="primary-button flex gap-2 items-center justify-center" onClick={addingItemToCart}>
                 <AiOutlineShoppingCart className="text-xl" />
                 <span>ADD TO CART</span>
               </button>

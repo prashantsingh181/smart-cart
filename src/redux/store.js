@@ -3,6 +3,7 @@ import categoriesReducer from "./slices/categories";
 import productsReducer from "./slices/products";
 import wishlistReducer from "./slices/wishlist";
 import cartReducer from "./slices/cart";
+import popupReducer from "./slices/popup";
 
 const store = configureStore({
   reducer: {
@@ -10,6 +11,7 @@ const store = configureStore({
     products: productsReducer,
     wishlist: wishlistReducer,
     cart: cartReducer,
+    popup: popupReducer,
   },
 });
 

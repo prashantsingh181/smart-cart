@@ -2,6 +2,7 @@ import { useRef } from "react";
 import Header from "../components/Header";
 import { Outlet } from "react-router-dom";
 import ScrollToTop from "../components/ScrollToTop";
+import Popup from "../components/Popup";
 
 const Layout = () => {
     const mainRef = useRef(null);
@@ -13,7 +14,7 @@ const Layout = () => {
                 <div className="container mx-auto p-4">
                     <Outlet />
                 </div>
-
+                <Popup />
             </main>
             <ScrollToTop scrollRef={mainRef} />
         </div>
