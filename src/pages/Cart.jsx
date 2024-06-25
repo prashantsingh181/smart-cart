@@ -40,7 +40,7 @@ const Cart = () => {
             </div>
             <CartPriceInfo products={cartProducts} />
           </section>
-          <hr />
+          <hr className="text-slate-300" />
           <section className="flex flex-col gap-6 my-6">
             <h3 className="font-bold text-lg font-inter">Our other products</h3>
             <ProductListRow products={otherItems} />

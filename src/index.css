@@ -14,7 +14,7 @@
   @apply w-2 h-2;
 }
 ::-webkit-scrollbar-track {
-  @apply bg-darkGray;
+  @apply bg-slate-300;
 }
 ::-webkit-scrollbar-thumb {
   @apply bg-accent rounded-md;
@@ -29,4 +29,8 @@
 
 .secondary-button {
   @apply border border-accent text-accent px-6 py-3 text-lg rounded;
+}
+
+button:active {
+  @apply transform translate-y-1 shadow-xl;
 }
