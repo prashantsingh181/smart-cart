@@ -12,13 +12,17 @@ import { useNavigate } from "react-router-dom";
 import HorizontalProductTile from "../components/HorizontalProductTile";
 import ProductListRow from "../components/ProductListRow";
 import EmptyCart from "../components/EmptyCart";
+import { showSuccessPopup } from "../redux/slices/popup";
 
 const Cart = () => {
   const navigate = useNavigate();
   const dispatch = useDispatch();
   const cartProducts = useSelector(cartSelector);
   const products = useSelector(productsSelector);
-  const otherItems = products.filter(product => !cartProducts.find((cartProduct) => product.id === cartProduct.id))
+  const otherItems = products.filter(
+    (product) =>
+      !cartProducts.find((cartProduct) => product.id === cartProduct.id)
+  );
   return (
     <>
       {cartProducts && cartProducts.length > 0 ? (
@@ -31,11 +35,16 @@ const Cart = () => {
                   key={product.id}
                   product={product}
                   closeButton
-                  closeFunctionality={() =>
-                    dispatch(removeItemFromCart(product.id))
+                  closeFunctionality={() => {
+                    dispatch(removeItemFromCart(product.id));
+                    dispatch(showSuccessPopup("Removed from cart!"));
+                  }}
+                  incrementQuantity={() =>
+                    dispatch(incrementQuantity(product.id))
                   }
-                  incrementQuantity={() => dispatch(incrementQuantity(product.id))}
-                  decrementQuantity={() => dispatch(decrementQuantity(product.id))}
+                  decrementQuantity={() =>
+                    dispatch(decrementQuantity(product.id))
+                  }
                 />
               ))}
             </div>
@@ -48,7 +57,11 @@ const Cart = () => {
           </section>
         </>
       ) : (
-        <EmptyCart text="There is nothing in your cart. Lets add some items." buttonText="Add from Wishlist" onClick={() => navigate("/wishlist")} />
+        <EmptyCart
+          text="There is nothing in your cart. Lets add some items."
+          buttonText="Add from Wishlist"
+          onClick={() => navigate("/wishlist")}
+        />
       )}
     </>
   );

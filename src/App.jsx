@@ -11,11 +11,13 @@ import { getProducts } from "./redux/slices/products";
 import { getCategories } from "./redux/slices/categories";
 import { useDispatch } from "react-redux";
 import { showErrorPopup } from "./redux/slices/popup";
+import EmptyCart from "./components/EmptyCart";
 
 const router = createBrowserRouter([
   {
     path: "/",
     element: <Layout />,
+    errorElement: <EmptyCart buttonText="Go To Home" />,
     children: [
       {
         index: true,

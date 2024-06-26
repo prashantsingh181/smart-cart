@@ -11,6 +11,7 @@ export default function ProductTile({ product, wishListItem, className }) {
   function handleClose(e) {
     e.preventDefault();
     dispatch(removeFromWishlist(product.id));
+    dispatch(showSuccessPopup("Removed From Wishlist!"))
   }
   function handleMoveToCart() {
     dispatch(addItemToCart({ product, quantity: 1 }))

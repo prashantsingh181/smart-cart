@@ -1,14 +1,30 @@
+import { useRouteError, useNavigate } from "react-router-dom";
 import emptyBag from "../assets/empty-bag.png";
-import { Link } from "react-router-dom";
 
 const EmptyCart = ({ text, buttonText, onClick }) => {
-    return (
-        <div className="flex flex-col items-center gap-6">
-            <div className="h-80 flex justify-center"><img className="max-h-full max-w-full" src={emptyBag} alt="empty bag" /></div>
-            <p className="text-center text-slate-400">{text}</p>
-            <button onClick={onClick} className="primary-button">{buttonText}</button>
-        </div>
-    )
-}
+  const error = useRouteError();
+  const navigate = useNavigate();
 
-export default EmptyCart
+  let handleClick;
+  if (typeof onClick === "function") {
+    handleClick = onClick;
+  } else {
+    handleClick = () => navigate("/");
+  }
+
+  return (
+    <div className="flex flex-col items-center gap-6">
+      <div className="h-80 flex justify-center">
+        <img className="max-h-full max-w-full" src={emptyBag} alt="empty bag" />
+      </div>
+      <p className="text-center text-slate-400">
+        {text ?? `${error.status} : ${error.statusText}`}
+      </p>
+      <button onClick={handleClick} className="primary-button">
+        {buttonText}
+      </button>
+    </div>
+  );
+};
+
+export default EmptyCart;
