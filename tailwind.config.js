@@ -39,7 +39,7 @@ export default {
         },
       },
       animation: {
-        floatDown: 'floatDown 0.5s ease-in-out',
+        floatDown: 'floatDown 0.5s ease-out',
       },
     },
   },

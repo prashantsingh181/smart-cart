@@ -23,7 +23,7 @@ export default function ProductTile({ product, wishListItem, className }) {
   }
 
   return (
-    <div className={`p-2 bg-white text-black shadow-lg rounded-lg border border-slate-300 ${className ? className : ""} `}>
+    <div className={`p-2 bg-white text-black shadow-lg rounded-lg border border-slate-300 ${className ? className : ""}`}>
       <Link to={`/products/${product.id}`}>
         {/* image of product */}
         <div className="relative flex items-center justify-center">

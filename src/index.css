@@ -17,7 +17,7 @@
   @apply bg-slate-300;
 }
 ::-webkit-scrollbar-thumb {
-  @apply bg-accent rounded-md;
+  @apply bg-accent rounded-md cursor-pointer;
 }
 ::-webkit-scrollbar-thumb:hover {
   @apply bg-black;

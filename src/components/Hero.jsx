@@ -4,7 +4,7 @@ import heroImg from "../assets/hero-img.svg"
 const Hero = () => {
     const navigate = useNavigate();
     return (
-        <div className="md:flex md:flex-row mt-10">
+        <div className="md:flex md:flex-row mt-10 px-3">
             <div
                 className="md:w-2/5 flex flex-col justify-center items-center text-black"
             >

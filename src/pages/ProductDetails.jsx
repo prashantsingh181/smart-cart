@@ -15,6 +15,7 @@ import { addItemToCart } from "../redux/slices/cart";
 import ProductQuantity from "../components/ProductQuantity";
 import PageHeading from "../components/PageHeading";
 import EmptyCart from "../components/EmptyCart";
+import { capitalizeAllWords } from "../utils/commonUtils";
 
 const ProductDetails = () => {
   const navigate = useNavigate();
@@ -31,7 +32,6 @@ const ProductDetails = () => {
   const similarCategoryProducts = useSelector((state) =>
     productsByCategorySelector(state, category)
   );
-  const age = product.age.yes;
   const otherItems = similarCategoryProducts.filter(
     (item) => product.id !== item.id
   );
@@ -127,7 +127,7 @@ const ProductDetails = () => {
       {/* similar items */}
       {category && (
         <section className="flex flex-col gap-4 my-4">
-          <h3 className="text-xl font-bold">See more in {category}</h3>
+          <h3 className="text-xl font-bold">See more in {capitalizeAllWords(category)}</h3>
           <ProductListRow products={otherItems} />
         </section>
       )}
