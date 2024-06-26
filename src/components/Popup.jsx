@@ -21,7 +21,7 @@ const Popup = () => {
         return (
             <div
                 className={`${popup.isError ? "bg-red-300" : "bg-green-300"
-                    } fixed z-20 top-24 right-8 flex flex-row gap-5 items-center bg-opacity-60 backdrop-blur-sm p-2 rounded border-slate-300 shadow-lg`}
+                    } fixed z-20 top-24 right-8 flex flex-row gap-5 items-center bg-opacity-40 backdrop-blur-sm p-2 rounded border-slate-300 shadow-lg`}
             >
                 <div className="flex flex-row gap-3 items-center">
                     {popup.isError ? (
@@ -29,7 +29,7 @@ const Popup = () => {
                     ) : (
                         <FaCheckCircle className="text-green-500" />
                     )}
-                    <span>{popup.message}</span>
+                    <span className="font-bold">{popup.message}</span>
                 </div>
                 <button className="text-red-500" onClick={() => dispatch(hidePopup())}>
                     <IoMdClose />

@@ -4,6 +4,7 @@ import Layout from "./pages/Layout";
 import Wishlist from "./pages/Wishlist";
 import Cart from "./pages/Cart";
 import Home from "./pages/Home";
+import Products from "./pages/Products";
 import Loader from "./components/loader/Loader";
 import ProductDetails from "./pages/ProductDetails";
 import { getProducts } from "./redux/slices/products";
@@ -19,6 +20,10 @@ const router = createBrowserRouter([
       {
         index: true,
         element: <Home />,
+      },
+      {
+        path: "/products",
+        element: <Products />,
       },
       {
         path: "/wishlist",
