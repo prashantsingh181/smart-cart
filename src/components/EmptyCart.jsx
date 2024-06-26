@@ -3,6 +3,8 @@ import emptyBag from "../assets/empty-bag.png";
 
 const EmptyCart = ({ text, buttonText, onClick }) => {
   const error = useRouteError();
+  console.error(error)
+  const errorMessage = error.status ? `${error.status} : ${error.statusText}` : error.message
   const navigate = useNavigate();
 
   let handleClick;
@@ -18,7 +20,7 @@ const EmptyCart = ({ text, buttonText, onClick }) => {
         <img className="max-h-full max-w-full" src={emptyBag} alt="empty bag" />
       </div>
       <p className="text-center text-slate-400">
-        {text ?? `${error.status} : ${error.statusText}`}
+        {text ?? errorMessage}
       </p>
       <button onClick={handleClick} className="primary-button">
         {buttonText}

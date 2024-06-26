@@ -34,6 +34,6 @@
 button:hover {
   @apply opacity-80;
 }
-button:active {
+button:active:not(:disabled) {
   @apply transform translate-y-1 shadow-xl;
 }

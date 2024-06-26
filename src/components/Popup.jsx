@@ -21,7 +21,7 @@ const Popup = () => {
         return (
             <div
                 className={`${popup.isError ? "bg-red-300" : "bg-green-300"
-                    } fixed z-20 top-24 right-8 flex flex-row gap-5 items-center bg-opacity-40 backdrop-blur-sm p-2 rounded border-slate-300 shadow-lg`}
+                    } fixed z-20 top-24 right-8 flex flex-row gap-5 items-center bg-opacity-40 backdrop-blur-sm p-2 rounded border-slate-300 shadow-lg animate-floatDown`}
             >
                 <div className="flex flex-row gap-3 items-center">
                     {popup.isError ? (

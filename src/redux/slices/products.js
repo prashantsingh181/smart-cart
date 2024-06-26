@@ -17,7 +17,11 @@ export const getProducts = createAsyncThunk(
   "products/getProducts",
   async () => {
     const response = await fakeStoreApi.get("/products");
-    return response.data;
+    if (response && response.data && Array.isArray(response.data)) {
+      return response.data;
+    } else {
+      throw new Error("Unexpected Response Format!");
+    }
   }
 );
 

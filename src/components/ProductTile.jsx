@@ -8,11 +8,15 @@ import { showSuccessPopup } from "../redux/slices/popup";
 
 export default function ProductTile({ product, wishListItem, className }) {
   const dispatch = useDispatch();
+
+  // function to handle click of close button
   function handleClose(e) {
     e.preventDefault();
     dispatch(removeFromWishlist(product.id));
     dispatch(showSuccessPopup("Removed From Wishlist!"))
   }
+
+  // function to handle click of move to cart
   function handleMoveToCart() {
     dispatch(addItemToCart({ product, quantity: 1 }))
     dispatch(showSuccessPopup("Added to cart!"));
