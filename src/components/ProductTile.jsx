@@ -43,7 +43,7 @@ export default function ProductTile({
     dispatch(wishlistToggle(product));
     dispatch(
       showSuccessPopup(
-        isWishListed ? "Removed From Wishlist!" : "Added to wishlist"
+        isWishListed ? "Removed from wishlist!" : "Added to wishlist"
       )
     );
   }
