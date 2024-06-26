@@ -31,7 +31,7 @@ const Products = () => {
               setSelectedCategory={setSelectedCategory}
             />
           )}
-          <ProductsGrid products={filteredProducts} />
+          <ProductsGrid products={filteredProducts} productPageItem />
         </>
       ) : (
         <EmptyCart

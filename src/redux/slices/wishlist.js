@@ -19,7 +19,6 @@ const wishlistSlice = createSlice({
       }
     },
     removeFromWishlist(state, action) {
-      console.log(1)
       return state.filter((item) => item.id !== action.payload);
     },
   },

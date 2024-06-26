@@ -12,7 +12,7 @@ const Wishlist = () => {
     <>
       {wishlistProducts && wishlistProducts.length > 0 ? <>
         <PageHeading heading="Wishlist Products" />
-        <ProductsGrid products={wishlistProducts} wishListItem />
+        <ProductsGrid products={wishlistProducts} wishlistItem />
       </> : <EmptyCart text="Your wishlist is empty. Let's add some items from products." onClick={() => navigate("/products")} buttonText="Add from Products" />}
     </>
   );
