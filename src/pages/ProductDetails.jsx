@@ -71,6 +71,7 @@ const ProductDetails = () => {
           <div className="bg-gray shadow bg-opacity-50 backdrop-blur-sm p-1 rounded font-bold self-start">
             <Rating rate={product.rating.rate} count={product.rating.count} />
           </div>
+          <div><span>Category: </span><span className="text-accent">{capitalizeAllWords(product.category)}</span></div>
           <hr className="text-slate-300" />
           <div className="flex flex-col">
             <span className="font-bold text-red-500 text-xl">
@@ -95,9 +96,8 @@ const ProductDetails = () => {
               <span>ADD TO CART</span>
             </button>
             <button
-              className={`secondary-button ${
-                isWishListed ? "bg-slate-300" : "bg-white"
-              } flex gap-2 items-center justify-center`}
+              className={`secondary-button ${isWishListed ? "bg-slate-300" : "bg-white"
+                } flex gap-2 items-center justify-center`}
               onClick={() => {
                 dispatch(wishlistToggle(product));
                 dispatch(
