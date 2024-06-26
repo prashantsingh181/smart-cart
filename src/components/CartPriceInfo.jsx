@@ -4,11 +4,11 @@ import { clearCart } from "../redux/slices/cart";
 
 const CartPriceInfo = ({ products }) => {
   const dispatch = useDispatch();
-  const productTotal = products.reduce((acc, product) => acc + product.price * product.quantity, 0);
+  const productTotal = (products.reduce((acc, product) => acc + product.price * product.quantity, 0)).toFixed(2);
   const currency = import.meta.env.VITE_CURRENCY
   const tax = Number(import.meta.env.VITE_TAX);
-  const taxPrice = Number(((tax * productTotal) / 100).toFixed(2));
-  const totalAmount = (taxPrice + productTotal).toFixed(2);
+  const taxPrice = ((tax * productTotal) / 100).toFixed(2);
+  const totalAmount = (Number(taxPrice) + Number(productTotal)).toFixed(2);
 
   function handlePlaceOrder() {
     dispatch(showSuccessPopup("Order Placed!"));

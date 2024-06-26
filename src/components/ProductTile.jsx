@@ -1,35 +1,76 @@
 import { Link } from "react-router-dom";
 import { IoMdClose } from "react-icons/io";
+import { FaRegHeart, FaHeart } from "react-icons/fa";
 import Rating from "./Rating";
-import { useDispatch } from "react-redux";
-import { removeFromWishlist } from "../redux/slices/wishlist";
+import { useDispatch, useSelector } from "react-redux";
+import {
+  removeFromWishlist,
+  wishlistByIdSelector,
+  wishlistToggle,
+} from "../redux/slices/wishlist";
 import { addItemToCart } from "../redux/slices/cart";
 import { showSuccessPopup } from "../redux/slices/popup";
 
-export default function ProductTile({ product, wishListItem, className }) {
+export default function ProductTile({
+  product,
+  wishlistItem,
+  productPageItem,
+  className,
+}) {
   const dispatch = useDispatch();
+
+  const isWishListed = Boolean(
+    useSelector((state) => wishlistByIdSelector(state, product?.id))
+  );
+  const wishListIcon = isWishListed ? <FaHeart /> : <FaRegHeart />;
 
   // function to handle click of close button
   function handleClose(e) {
     e.preventDefault();
     dispatch(removeFromWishlist(product.id));
-    dispatch(showSuccessPopup("Removed From Wishlist!"))
+    dispatch(showSuccessPopup("Removed from wishlist!"));
   }
 
   // function to handle click of move to cart
   function handleMoveToCart() {
-    dispatch(addItemToCart({ product, quantity: 1 }))
+    dispatch(addItemToCart({ product, quantity: 1 }));
     dispatch(showSuccessPopup("Added to cart!"));
   }
 
+  // function to handle click on heat icon
+  function handleWishlistToggle(e) {
+    e.preventDefault();
+    dispatch(wishlistToggle(product));
+    dispatch(
+      showSuccessPopup(
+        isWishListed ? "Removed From Wishlist!" : "Added to wishlist"
+      )
+    );
+  }
+
   return (
-    <div className={`p-2 bg-white text-black shadow-lg rounded-lg border border-slate-300 ${className ? className : ""}`}>
+    <div
+      className={`p-2 bg-white text-black shadow-lg rounded-lg border border-slate-300 ${
+        className ? className : ""
+      }`}
+    >
       <Link to={`/products/${product.id}`}>
         {/* image of product */}
         <div className="relative flex items-center justify-center">
-          {wishListItem && (
-            <button onClick={handleClose} className="text-red-500 absolute top-2 right-2 z-10 rounded-full p-1 bg-gray shadow bg-opacity-50 backdrop-blur-sm">
+          {wishlistItem && (
+            <button
+              onClick={handleClose}
+              className="text-red-500 absolute top-2 right-2 z-10 rounded-full p-1 bg-gray shadow bg-opacity-50 backdrop-blur-sm"
+            >
               <IoMdClose />
+            </button>
+          )}
+          {productPageItem && (
+            <button
+              className="text-accent absolute top-2 right-2 z-10 text-3xl"
+              onClick={handleWishlistToggle}
+            >
+              {wishListIcon}
             </button>
           )}
           <img
@@ -55,7 +96,14 @@ export default function ProductTile({ product, wishListItem, className }) {
           </div>
         </div>
       </Link>
-      {wishListItem && <button className="w-full text-center bg-white border border-slate-300 p-2" onClick={handleMoveToCart}>Move to cart</button>}
+      {(wishlistItem || productPageItem) && (
+        <button
+          className="w-full text-center bg-white border border-slate-300 p-2"
+          onClick={handleMoveToCart}
+        >
+          {wishlistItem ? "Move to cart" : "Add to cart"}
+        </button>
+      )}
     </div>
   );
 }

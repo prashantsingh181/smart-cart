@@ -102,7 +102,7 @@ const ProductDetails = () => {
                 dispatch(wishlistToggle(product));
                 dispatch(
                   showSuccessPopup(
-                    `${isWishListed ? "Removed from" : "Added to"} Wishlist!`
+                    `${isWishListed ? "Removed from" : "Added to"} wishlist!`
                   )
                 );
               }}

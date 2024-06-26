@@ -8,6 +8,7 @@ const HorizontalProductTile = ({
   incrementQuantity,
   decrementQuantity,
 }) => {
+  const totalPrice = (product.price * product.quantity).toFixed(2)
   return (
     <div className="flex flex-row gap-4 border border-slate-300 rounded p-4 relative">
       {closeButton && (
@@ -29,7 +30,7 @@ const HorizontalProductTile = ({
           decrement={decrementQuantity}
         />
         <span className="text-red-500 font-bold">{`${import.meta.env.VITE_CURRENCY || ""
-          }${product.price * product.quantity}`}</span>
+          }${totalPrice}`}</span>
       </div>
     </div>
   );
