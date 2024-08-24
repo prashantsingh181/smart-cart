@@ -35,7 +35,7 @@ const ScrollToTop = ({ scrollRef }) => {
   }, []);
   return (
     <button
-      className={`absolute bottom-5 right-5 bg-accent text-white rounded-full h-12 aspect-square flex justify-center items-center ${isVisible ? "flex" : "hidden"
+      className={`absolute bottom-5 right-5 bg-theme-color text-button-text-color rounded-full h-12 aspect-square flex justify-center items-center ${isVisible ? "flex" : "hidden"
         }`}
       onClick={scrollToTop}
     >

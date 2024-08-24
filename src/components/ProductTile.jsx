@@ -50,9 +50,8 @@ export default function ProductTile({
 
   return (
     <div
-      className={`p-2 bg-white text-black shadow-lg rounded-lg border border-slate-300 ${
-        className ? className : ""
-      }`}
+      className={`p-2 bg-primary-background text-primary-text shadow-lg rounded-lg border border-border-color ${className ? className : ""
+        }`}
     >
       <Link to={`/products/${product.id}`}>
         {/* image of product */}
@@ -60,14 +59,14 @@ export default function ProductTile({
           {wishlistItem && (
             <button
               onClick={handleClose}
-              className="text-red-500 absolute top-2 right-2 z-10 rounded-full p-1 bg-gray shadow bg-opacity-50 backdrop-blur-sm"
+              className="text-red-500 absolute top-2 right-2 z-10 rounded-full p-1 bg-rating-background shadow bg-opacity-50 backdrop-blur-sm"
             >
               <IoMdClose />
             </button>
           )}
           {productPageItem && (
             <button
-              className="text-accent absolute top-2 right-2 z-10 text-3xl"
+              className="text-theme-color absolute top-2 right-2 z-10 text-3xl"
               onClick={handleWishlistToggle}
             >
               {wishListIcon}
@@ -80,7 +79,7 @@ export default function ProductTile({
           ></img>
           {/* rating of product */}
           {product.rating && (
-            <div className="absolute bottom-3 left-3 bg-gray shadow bg-opacity-50 backdrop-blur-sm p-1 rounded text-sm font-bold">
+            <div className="absolute bottom-3 left-3 bg-rating-background shadow bg-opacity-50 backdrop-blur-sm p-1 rounded text-sm font-bold">
               <Rating rate={product.rating.rate} count={product.rating.count} />
             </div>
           )}
@@ -98,7 +97,7 @@ export default function ProductTile({
       </Link>
       {(wishlistItem || productPageItem) && (
         <button
-          className="w-full text-center bg-white border border-slate-300 p-2"
+          className="w-full text-center bg-primary-background border border-border-color p-2"
           onClick={handleMoveToCart}
         >
           {wishlistItem ? "Move to cart" : "Add to cart"}

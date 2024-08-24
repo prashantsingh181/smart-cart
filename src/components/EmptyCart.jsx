@@ -19,7 +19,7 @@ const EmptyCart = ({ text, buttonText, onClick }) => {
       <div className="h-80 flex justify-center">
         <img className="max-h-full max-w-full" src={emptyBag} alt="empty bag" />
       </div>
-      <p className="text-center text-slate-400">
+      <p className="text-center text-secondary-text">
         {text ?? errorMessage}
       </p>
       <button onClick={handleClick} className="primary-button">

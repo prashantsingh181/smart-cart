@@ -7,7 +7,7 @@ const Categories = ({ categories, selectedCategory, setSelectedCategory }) => {
     <menu className="flex flex-wrap gap-x-6 gap-y-3 justify-center font-inter py-3">
       <li>
         <button
-          className={`${"all" === selectedCategory ? "bg-accent text-white" : ""
+          className={`${"all" === selectedCategory ? "bg-theme-color text-button-text-color" : ""
             } px-4 py-2 rounded`}
           onClick={() => setSelectedCategory("all")}
         >
@@ -19,7 +19,7 @@ const Categories = ({ categories, selectedCategory, setSelectedCategory }) => {
           <button
             onClick={(e) => setSelectedCategory(e.target.value)}
             value={category}
-            className={`${category === selectedCategory ? "bg-accent text-white" : ""
+            className={`${category === selectedCategory ? "bg-theme-color text-button-text-color" : ""
               } px-4 py-2 rounded`}
           >
             {capitalizeAllWords(category)}

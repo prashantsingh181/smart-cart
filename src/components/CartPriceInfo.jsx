@@ -14,12 +14,13 @@ const CartPriceInfo = ({ products }) => {
     dispatch(showSuccessPopup("Order Placed!"));
     setTimeout(() => dispatch(clearCart()), 1000)
   }
+
   return (
     <section className="flex flex-col gap-2">
-      <h3 className="font-bold text-slate-400 font-inter">Price Details ({`${products.length} Quantity`})</h3>
+      <h3 className="font-bold text-secondary-text font-inter">Price Details ({`${products.length} Quantity`})</h3>
       <div className="flex flex-row justify-between"><span>Total MRP</span><span>{currency}{productTotal}</span></div>
       <div className="flex flex-row justify-between"><span>GST({tax}%)</span><span>{currency}{taxPrice}</span></div>
-      <hr className="text-slate-300" />
+      <hr className="text-secondary-text" />
       <div className="flex flex-col gap-6">
         <div className="flex flex-row justify-between font-bold"><span>Total Amount</span><span>{currency}{totalAmount}</span></div>
         <button className="primary-button" onClick={handlePlaceOrder}>PLACE ORDER</button>

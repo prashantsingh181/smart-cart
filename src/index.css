@@ -2,38 +2,47 @@
 @tailwind components;
 @tailwind utilities;
 
+/* colors variable declaration */
 :root {
+  --primary-text: #1a1f24;
+  --rating-background: #fafafa;
+  --primary-background: #ffffff;
+  --theme-color: #0ea2bd;
+  --secondary-text: #44505c;
+  --border-color: #cbd5e1;
+  --button-text-color: #ffffff;
+}
+
+/* :root {
   font-synthesis: none;
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-}
+} */
 
 /* Scrollbar css */
+/* Hide scrollbar for Chrome, Safari and Opera */
 ::-webkit-scrollbar {
-  @apply w-1 h-1;
+  display: none;
 }
-::-webkit-scrollbar-track {
-  @apply bg-slate-300;
-}
-::-webkit-scrollbar-thumb {
-  @apply bg-accent rounded-md cursor-pointer;
-}
-::-webkit-scrollbar-thumb:hover {
-  @apply bg-black;
+
+/* Hide scrollbar for IE, Edge and Firefox */
+main {
+  -ms-overflow-style: none; /* IE and Edge */
+  scrollbar-width: none; /* Firefox */
 }
 
 .primary-button {
-  @apply bg-accent text-white px-6 py-3 text-lg rounded;
+  @apply bg-theme-color text-button-text-color px-6 py-3 text-lg rounded;
 }
 
 .secondary-button {
-  @apply border border-accent text-accent px-6 py-3 text-lg rounded;
+  @apply border border-theme-color text-theme-color px-6 py-3 text-lg rounded;
 }
 
 button:hover {
   @apply opacity-80;
 }
 button:active:not(:disabled) {
-  @apply transform translate-y-1 shadow-xl;
+  @apply scale-110 transition duration-100 ease-linear;
 }

@@ -4,13 +4,13 @@ export default {
   theme: {
     extend: {
       colors: {
-        black: "#000000",
-        gray: "#fafafa",
-        white: "#ffffff",
-        dark: "#1a1f24",
-        accent: "#0ea2bd",
-        darkGray: "#44505c",
-        borderGray: "color-mix(in srgb, #fafafa, transparent 90%)",
+        "primary-text": "var(--primary-text)",
+        "rating-background": "var(--rating-background)",
+        "primary-background": "var(--primary-background)",
+        "theme-color": "var(--theme-color)",
+        "secondary-text": "var(--secondary-text)",
+        "border-color": "var(--border-color)",
+        "button-text-color": "var(--button-text-color)",
       },
       fontFamily: {
         roboto: [
@@ -34,12 +34,12 @@ export default {
       },
       keyframes: {
         floatDown: {
-          '0%': { transform: 'translateY(-100%)', opacity: '0' },
-          '100%': {transform: 'translateY(0)', opacity: '1'}
+          "0%": { transform: "translateY(-100%)", opacity: "0" },
+          "100%": { transform: "translateY(0)", opacity: "1" },
         },
       },
       animation: {
-        floatDown: 'floatDown 0.5s ease-out',
+        floatDown: "floatDown 0.5s ease-out",
       },
     },
   },

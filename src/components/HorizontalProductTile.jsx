@@ -10,7 +10,7 @@ const HorizontalProductTile = ({
 }) => {
   const totalPrice = (product.price * product.quantity).toFixed(2)
   return (
-    <div className="flex flex-row gap-4 border border-slate-300 rounded p-4 relative">
+    <div className="flex flex-row gap-4 border border-border-color rounded p-4 relative">
       {closeButton && (
         <button
           className="absolute right-3 top-3 text-red-500"

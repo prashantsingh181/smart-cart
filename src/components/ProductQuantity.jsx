@@ -5,7 +5,7 @@ const ProductQuantity = ({ value, increment, decrement }) => {
     <div className="flex p-2 items-center gap-3">
       <button
         onClick={decrement}
-        className="text-accent disabled:text-slate-300"
+        className="text-theme-color disabled:text-secondary-text"
         disabled={value === 1}
       >
         <GrSubtractCircle />
@@ -13,7 +13,7 @@ const ProductQuantity = ({ value, increment, decrement }) => {
       <span className="border rounded px-2">{value}</span>
       <button
         onClick={increment}
-        className="text-accent disabled:text-slate-300"
+        className="text-theme-color disabled:text-secondary-text"
         disabled={value === 10}
       >
         <GrAddCircle />

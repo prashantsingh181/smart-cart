@@ -7,7 +7,7 @@ import Popup from "../components/Popup";
 const Layout = () => {
   const mainRef = useRef(null);
   return (
-    <div className="flex flex-col text-dark bg-white h-screen">
+    <div className="flex flex-col text-primary-text bg-primary-background h-screen">
       <Header />
       {/* main element with its own scrollbar */}
       <main

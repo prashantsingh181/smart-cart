@@ -68,11 +68,11 @@ const ProductDetails = () => {
         </section>
         <section className="flex flex-col gap-4 px-4">
           <h2 className="text-2xl">{product.title}</h2>
-          <div className="bg-gray shadow bg-opacity-50 backdrop-blur-sm p-1 rounded font-bold self-start">
+          <div className="bg-rating-background shadow bg-opacity-50 backdrop-blur-sm p-1 rounded font-bold self-start">
             <Rating rate={product.rating.rate} count={product.rating.count} />
           </div>
-          <div><span>Category: </span><span className="text-accent">{capitalizeAllWords(product.category)}</span></div>
-          <hr className="text-slate-300" />
+          <div><span>Category: </span><span className="text-theme-color">{capitalizeAllWords(product.category)}</span></div>
+          <hr className="text-secondary-text" />
           <div className="flex flex-col">
             <span className="font-bold text-red-500 text-xl">
               {import.meta.env.VITE_CURRENCY}
@@ -96,7 +96,7 @@ const ProductDetails = () => {
               <span>ADD TO CART</span>
             </button>
             <button
-              className={`secondary-button ${isWishListed ? "bg-slate-300" : "bg-white"
+              className={`secondary-button ${isWishListed ? "bg-" : "bg-primary-background"
                 } flex gap-2 items-center justify-center`}
               onClick={() => {
                 dispatch(wishlistToggle(product));
@@ -115,7 +115,7 @@ const ProductDetails = () => {
               <span>{isWishListed ? "WISHLISTED" : "WISHLIST"}</span>
             </button>
           </div>
-          <hr className="text-slate-300" />
+          <hr className="text-secondary-text" />
           {/* product description */}
           <div>
             <h3 className="text-xl font-bold">Description</h3>
@@ -123,7 +123,7 @@ const ProductDetails = () => {
           </div>
         </section>
       </div>
-      <hr className="my-8 text-slate-300" />
+      <hr className="my-8 text-secondary-text" />
       {/* similar items */}
       {category && (
         <section className="flex flex-col gap-4 my-4">

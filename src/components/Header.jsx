@@ -17,14 +17,14 @@ const Header = () => {
     const [isOpen, setIsOpen] = useState(false);
 
     return (
-        <header className="flex px-4 sticky top-0 z-50 items-center bg-white min-h-16 shadow-lg">
+        <header className="flex px-4 sticky top-0 z-50 items-center bg-primary-background min-h-16 shadow-lg">
             {/* logo */}
-            <Link to="/" className="flex gap-1 text-3xl lg:text-4xl items-center font-cardo text-accent">
+            <Link to="/" className="flex gap-1 text-3xl lg:text-4xl items-center font-cardo text-theme-color">
                 <AiOutlineShoppingCart />
                 <h1>SmartCart</h1>
             </Link>
             {/* hamburger and close icon */}
-            <button className="ml-auto text-2xl block lg:hidden text-accent" onClick={() => setIsOpen(prevIsOpen => !prevIsOpen)}>
+            <button className="ml-auto text-2xl block lg:hidden text-theme-color" onClick={() => setIsOpen(prevIsOpen => !prevIsOpen)}>
                 {isOpen ? <IoMdClose /> :
                     <RxHamburgerMenu />}
 
