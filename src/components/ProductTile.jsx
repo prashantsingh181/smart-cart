@@ -50,7 +50,7 @@ export default function ProductTile({
 
   return (
     <div
-      className={`p-2 bg-primary-background text-primary-text shadow-lg rounded-lg border border-border-color ${className ? className : ""
+      className={`p-2 bg-primary-background text-primary-text shadow shadow-shadow-color rounded-lg border border-border-color ${className ? className : ""
         }`}
     >
       <Link to={`/products/${product.id}`}>
@@ -59,7 +59,7 @@ export default function ProductTile({
           {wishlistItem && (
             <button
               onClick={handleClose}
-              className="text-red-500 absolute top-2 right-2 z-10 rounded-full p-1 bg-rating-background shadow bg-opacity-50 backdrop-blur-sm"
+              className="text-red-500 absolute top-2 right-2 z-10 rounded-full p-1 bg-rating-background shadow shadow-shadow-color backdrop-blur-sm"
             >
               <IoMdClose />
             </button>
@@ -79,7 +79,7 @@ export default function ProductTile({
           ></img>
           {/* rating of product */}
           {product.rating && (
-            <div className="absolute bottom-3 left-3 bg-rating-background shadow bg-opacity-50 backdrop-blur-sm p-1 rounded text-sm font-bold">
+            <div className="absolute bottom-3 left-3 bg-rating-background shadow shadow-shadow-color backdrop-blur-sm p-1 rounded text-sm font-bold">
               <Rating rate={product.rating.rate} count={product.rating.count} />
             </div>
           )}

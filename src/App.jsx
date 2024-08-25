@@ -9,9 +9,11 @@ import Loader from "./components/loader/Loader";
 import ProductDetails from "./pages/ProductDetails";
 import { getProducts } from "./redux/slices/products";
 import { getCategories } from "./redux/slices/categories";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
+import { themeSelector } from "./redux/slices/theme";
 import { showErrorPopup } from "./redux/slices/popup";
 import EmptyCart from "./components/EmptyCart";
+import useSetTheme from "../hooks/useSetTheme";
 
 const router = createBrowserRouter([
   {
@@ -44,8 +46,11 @@ const router = createBrowserRouter([
 ]);
 
 function App() {
+  const theme = useSelector(themeSelector)
   const dispatch = useDispatch()
   const [isLoading, setIsLoading] = useState(true)
+
+  useSetTheme(theme);
   useEffect(() => {
     async function fetchData() {
       try {

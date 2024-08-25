@@ -4,23 +4,29 @@ import productsReducer from "./slices/products";
 import wishlistReducer from "./slices/wishlist";
 import cartReducer from "./slices/cart";
 import popupReducer from "./slices/popup";
+import themeReducer from "./slices/theme";
 import cartMiddleware from "./middleware/cartMiddleware";
 import wishlistMiddleware from "./middleware/wishlistMiddleware";
 
 // function to rehydrate the state
 const reHydrateStore = (preloadedState) => {
   let cartData = [],
-    wishlistData = [];
+    wishlistData = [],
+    themeData = "light";
   if (localStorage.getItem("cart") !== null) {
     cartData = JSON.parse(localStorage.getItem("cart"));
   }
   if (localStorage.getItem("wishlist") !== null) {
     wishlistData = JSON.parse(localStorage.getItem("wishlist"));
   }
+  if (localStorage.getItem("theme") !== null) {
+    themeData = JSON.parse(localStorage.getItem("theme"));
+  }
   return {
     ...preloadedState,
     cart: cartData,
     wishlist: wishlistData,
+    theme: themeData,
   };
 };
 
@@ -31,6 +37,7 @@ const store = configureStore({
     wishlist: wishlistReducer,
     cart: cartReducer,
     popup: popupReducer,
+    theme: themeReducer,
   },
   preloadedState: reHydrateStore(),
   middleware: (getDefaultMiddleware) =>

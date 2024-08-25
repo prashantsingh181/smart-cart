@@ -5,12 +5,13 @@ export default {
     extend: {
       colors: {
         "primary-text": "var(--primary-text)",
-        "rating-background": "var(--rating-background)",
+        "rating-background": "rgb(var(--rating-background), 0.5)",
         "primary-background": "var(--primary-background)",
         "theme-color": "var(--theme-color)",
         "secondary-text": "var(--secondary-text)",
         "border-color": "var(--border-color)",
         "button-text-color": "var(--button-text-color)",
+        "shadow-color": "var(--shadow-color)",
       },
       fontFamily: {
         roboto: [

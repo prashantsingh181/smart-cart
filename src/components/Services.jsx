@@ -36,7 +36,7 @@ const Services = () => {
 
 const ServiceCard = function ({ imgURL, label, subtext }) {
   return (
-    <div className="flex-1 min-w-[250px] sm:w-[350px] sm:min-w-[350px] w-full rounded-[20px] shadow-xl border border-border-color px-6 py-10 my-4">
+    <div className="flex-1 min-w-[250px] sm:w-[350px] sm:min-w-[350px] w-full rounded-[20px] shadow shadow-shadow-color border border-border-color px-6 py-10 my-4">
       <div className="p-3 bg-theme-color rounded-full inline-block text-2xl">
         {imgURL}
       </div>

@@ -68,7 +68,7 @@ const ProductDetails = () => {
         </section>
         <section className="flex flex-col gap-4 px-4">
           <h2 className="text-2xl">{product.title}</h2>
-          <div className="bg-rating-background shadow bg-opacity-50 backdrop-blur-sm p-1 rounded font-bold self-start">
+          <div className="bg-blue-400 shadow shadow-color backdrop-blur-sm p-1 rounded font-bold self-start">
             <Rating rate={product.rating.rate} count={product.rating.count} />
           </div>
           <div><span>Category: </span><span className="text-theme-color">{capitalizeAllWords(product.category)}</span></div>
