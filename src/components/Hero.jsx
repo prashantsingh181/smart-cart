@@ -7,7 +7,7 @@ const Hero = () => {
     <section className="hero">
       <div className="centered-container flex-col-reverse flex md:flex-row py-8 px-3 gap-10">
         <div className="md:w-2/5 flex flex-col justify-center items-center text-primary-text">
-          <h2 className="text-2xl md:text-4xl font-cardo mb-2 md:mb-4 text-center md:self-start md:text-left">
+          <h2 className="text-2xl md:text-4xl font-cardo font-bold mb-2 md:mb-4 text-center md:self-start md:text-left">
             <span className="text-theme-color">SmartCart:</span> Your Shopping
             Sidekick
           </h2>
