@@ -14,9 +14,7 @@ const Layout = () => {
         ref={mainRef}
         className="flex-grow overflow-auto relative font-roboto"
       >
-        <div className="container mx-auto p-4">
-          <Outlet />
-        </div>
+        <Outlet />
         <Popup />
       </main>
       <ScrollToTop scrollRef={mainRef} />

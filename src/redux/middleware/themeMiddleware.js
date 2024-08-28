@@ -7,3 +7,5 @@ const themeMiddleware = ({ getState }) => {
     return result;
   };
 };
+
+export default themeMiddleware

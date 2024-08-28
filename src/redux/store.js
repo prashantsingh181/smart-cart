@@ -7,6 +7,7 @@ import popupReducer from "./slices/popup";
 import themeReducer from "./slices/theme";
 import cartMiddleware from "./middleware/cartMiddleware";
 import wishlistMiddleware from "./middleware/wishlistMiddleware";
+import themeMiddleware from "./middleware/themeMiddleware";
 
 // function to rehydrate the state
 const reHydrateStore = (preloadedState) => {
@@ -20,7 +21,7 @@ const reHydrateStore = (preloadedState) => {
     wishlistData = JSON.parse(localStorage.getItem("wishlist"));
   }
   if (localStorage.getItem("theme") !== null) {
-    themeData = JSON.parse(localStorage.getItem("theme"));
+    themeData = localStorage.getItem("theme");
   }
   return {
     ...preloadedState,
@@ -41,7 +42,11 @@ const store = configureStore({
   },
   preloadedState: reHydrateStore(),
   middleware: (getDefaultMiddleware) =>
-    getDefaultMiddleware().concat(cartMiddleware, wishlistMiddleware),
+    getDefaultMiddleware().concat(
+      cartMiddleware,
+      wishlistMiddleware,
+      themeMiddleware
+    ),
 });
 
 export default store;

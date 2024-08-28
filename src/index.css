@@ -11,6 +11,7 @@
   --rating-background: 228, 233, 239;
   --button-text-color: #f2fafc;
   --primary-background: #fafdfe;
+  --secondary-background: #f9f9fb;
   --shadow-color: #edf1f6;
 }
 
@@ -21,12 +22,15 @@
   --rating-background: 31, 42, 56;
   --button-text-color: #0f1b1e;
   --primary-background: #091315;
+  --secondary-background: #19191b;
   --shadow-color: #0e1926;
 }
 
 * {
   transition: color 300ms linear;
   transition: background-color 500ms linear;
+  transition: --gradient-color-1 500ms, --gradient-color-2 500ms,
+    --gradient-color-3 500ms;
 }
 
 :root {
@@ -35,6 +39,40 @@
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
+
+/* Hero CSS */
+@property --gradient-color-1 {
+  syntax: "<color>";
+  initial-value: #e6f3fa;
+  inherits: false;
+}
+
+@property --gradient-color-2 {
+  syntax: "<color>";
+  initial-value: #c7e5eb;
+  inherits: false;
+}
+
+@property --gradient-color-3 {
+  syntax: "<color>";
+  initial-value: #98cbe4;
+  inherits: false;
+}
+
+[data-theme="dark"] .hero {
+  --gradient-color-1: #1A1D23;
+  --gradient-color-2: #2E4053;
+  --gradient-color-3: #4682B4;
+}
+.hero {
+  background: linear-gradient(
+    135deg,
+    var(--gradient-color-1) 0%,
+    var(--gradient-color-2) 50%,
+    var(--gradient-color-3) 100%
+  );
+}
+/* Hero CSS end */
 
 /* Scrollbar css */
 /* Hide scrollbar for Chrome, Safari and Opera */
@@ -48,13 +86,18 @@ main {
   scrollbar-width: none; /* Firefox */
 }
 
+/* utility classes */
 .primary-button {
   @apply bg-theme-color text-button-text-color px-6 py-3 text-lg rounded;
 }
-
 .secondary-button {
   @apply border border-theme-color text-theme-color px-6 py-3 text-lg rounded;
 }
+.centered-container {
+  @apply container mx-auto;
+}
+
+/* utility classes end */
 
 button:hover {
   @apply opacity-80;
@@ -62,3 +105,61 @@ button:hover {
 button:active:not(:disabled) {
   @apply scale-110 transition duration-100 ease-linear;
 }
+
+/* waves css */
+.waves {
+  display: block;
+  width: 100%;
+  height: 60px;
+  position: relative;
+}
+
+.wave1 use {
+  animation: move-forever1 10s linear infinite;
+  animation-delay: -2s;
+  fill: var(--secondary-background);
+  opacity: 0.6;
+}
+
+.wave2 use {
+  animation: move-forever2 8s linear infinite;
+  animation-delay: -2s;
+  fill: var(--secondary-background);
+  opacity: 0.4;
+}
+
+.wave3 use {
+  animation: move-forever3 6s linear infinite;
+  animation-delay: -2s;
+  fill: var(--secondary-background);
+}
+
+@keyframes move-forever1 {
+  0% {
+    transform: translate(85px, 0%);
+  }
+  100% {
+    transform: translate(-90px, 0%);
+  }
+}
+
+@keyframes move-forever2 {
+  0% {
+    transform: translate(-90px, 0%);
+  }
+  100% {
+    transform: translate(85px, 0%);
+  }
+}
+
+@keyframes move-forever3 {
+  0% {
+    transform: translate(-90px, 0%);
+  }
+
+  100% {
+    transform: translate(85px, 0%);
+  }
+}
+
+/* Waves css end */

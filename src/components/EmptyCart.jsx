@@ -3,7 +3,6 @@ import emptyBag from "../assets/empty-bag.png";
 
 const EmptyCart = ({ text, buttonText, onClick }) => {
   const error = useRouteError();
-  console.log(error)
   const errorMessage = !text && (error.status ? `${error.status} : ${error.statusText}` : error.message)
   const navigate = useNavigate();
 

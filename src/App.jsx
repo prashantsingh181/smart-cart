@@ -13,7 +13,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { themeSelector } from "./redux/slices/theme";
 import { showErrorPopup } from "./redux/slices/popup";
 import EmptyCart from "./components/EmptyCart";
-import useSetTheme from "../hooks/useSetTheme";
+import useSetTheme from "./hooks/useSetTheme";
 
 const router = createBrowserRouter([
   {

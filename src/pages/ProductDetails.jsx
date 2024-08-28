@@ -56,7 +56,7 @@ const ProductDetails = () => {
     setCount(1);
   }
   return product ? (
-    <>
+    <div className="centered-container bg-secondary-background p-6">
       <PageHeading heading="Product Details" />
       <div className="grid grid-flow-row grid-cols-1 lg:grid-cols-2">
         <section className="h-96 flex justify-center items-center">
@@ -131,7 +131,7 @@ const ProductDetails = () => {
           <ProductListRow products={otherItems} />
         </section>
       )}
-    </>
+    </div>
   ) : (
     <EmptyCart text="Cannot display product now. Please try later!" buttonText="Go to Home Page" onClick={() => navigate("/")} />
   );

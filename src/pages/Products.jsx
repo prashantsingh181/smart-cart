@@ -20,7 +20,7 @@ const Products = () => {
       : products.filter((product) => product.category === selectedCategory);
 
   return (
-    <>
+    <div className="centered-container bg-secondary-background p-6">
       {products && products.length > 0 ? (
         <>
           <PageHeading heading="Our Products" />
@@ -40,7 +40,7 @@ const Products = () => {
           onClick={() => navigate("/")}
         />
       )}
-    </>
+    </div>
   );
 };
 
