@@ -34,11 +34,11 @@ const Services = () => {
 
 const ServiceCard = function ({ icon, label, subtext }) {
   return (
-    <div className="flex-1 min-w-[250px] sm:w-[350px] sm:min-w-[350px] w-full rounded-[20px] bg-primary-background shadow shadow-shadow-color border border-border-color px-3 md:px-6 py-4 md:py-10 my-4">
+    <div className="flex-1 min-w-[250px] sm:w-[350px] sm:min-w-[350px] w-full rounded-[20px] bg-primary-background shadow shadow-shadow-color border border-border-color px-4 md:px-6 py-4 md:py-10 my-0 md:my-4">
       <div className="p-3 bg-theme-color rounded-full inline-block text-xl md:text-2xl">
         {icon}
       </div>
-      <h3 className="mt-5 font-cardo text-xl md:text-3xl leading-normal font-bold">
+      <h3 className="mt-3 md:mt-5 font-cardo text-xl md:text-3xl leading-normal font-bold">
         {label}
       </h3>
       <p className="mt-3 break-words font-inter md:text-lg leading-normal text-primary-text">

@@ -33,11 +33,16 @@
     --gradient-color-3 500ms;
 }
 
+/* reset css */
 :root {
   font-synthesis: none;
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+}
+
+html, body, #root {
+  @apply h-screen bg-primary-background
 }
 
 /* Hero CSS */

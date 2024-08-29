@@ -1,28 +1,50 @@
-import { useLocation, NavLink } from 'react-router-dom';
-import { useSelector } from 'react-redux';
-import { cartSelector } from '../redux/slices/cart';
+import { NavLink } from "react-router-dom";
+import { useSelector } from "react-redux";
+import { cartSelector } from "../redux/slices/cart";
+import { BsCart3, BsHouseDoor, BsHeart, BsBag } from "react-icons/bs";
 
-const Navbar = ({ isOpen }) => {
-    const location = useLocation();
-    const cartItems = useSelector(cartSelector);
-    return (
-        <nav className={`p-4 font-inter text-lg shadow shadow-shadow-color lg:shadow-none absolute lg:static z-[-10] right-0 top-0 pt-16 lg:p-0 w-48 lg:w-auto h-screen lg:h-auto bg-primary-background ${isOpen ? "block" : "hidden"} lg:block`}>
-            <ul className="flex flex-col lg:flex-row gap-4 lg:gap-8">
-                <li title="Home">
-                    <NavLink to="/" className={({ isActive }) => `${isActive ? "opacity-100 border-b-2 border-theme-color" : "opacity-50"} hover:opacity-100 tracking-wider py-1 block text-center`}>HOME</NavLink>
-                </li>
-                <li title="Home">
-                    <NavLink to="/products" className={({ isActive }) => `${isActive ? "opacity-100 border-b-2 border-theme-color" : "opacity-50"} hover:opacity-100 tracking-wider py-1 block text-center`}>PRODUCTS</NavLink>
-                </li>
-                <li title="Wishlist">
-                    <NavLink to="/wishlist" className={({ isActive }) => `${isActive ? "opacity-100 border-b-2 border-theme-color" : "opacity-50"} hover:opacity-100 tracking-wider py-1 block text-center`}>WISHLIST</NavLink>
-                </li>
-                <li title="Cart">
-                    <NavLink to="/cart" className={({ isActive }) => `${isActive ? "opacity-100 border-b-2 border-theme-color" : "opacity-50"} hover:opacity-100 tracking-wider py-1 block text-center`}>CART({cartItems.length})</NavLink>
-                </li>
-            </ul>
-        </nav>
-    )
+const Navbar = () => {
+  const cartItems = useSelector(cartSelector);
+  return (
+    <nav className="font-inter text-lg hidden md:block">
+      <ul className="flex gap-8">
+        <NavItem to="/" title="Home" Icon={BsHouseDoor} />
+        <NavItem to="/products" title="Shop" Icon={BsBag} />
+        <NavItem to="/wishlist" title="Wishlist" Icon={BsHeart} />
+        <NavItem
+          to="/cart"
+          title="Cart"
+          Icon={BsCart3}
+          number={cartItems.length}
+        />
+      </ul>
+    </nav>
+  );
+};
+
+export default Navbar;
+
+function NavItem({ to, title, Icon, number }) {
+  return (
+    <li>
+      <NavLink
+        to={to}
+        className={({ isActive }) =>
+          `${
+            isActive ? "opacity-100 text-theme-primary-text" : "opacity-60"
+          } hover:opacity-100 py-1 flex flex-col items-center justify-center`
+        }
+      >
+        <div className="relative">
+          {number > 0 && (
+            <div className="absolute -top-2 -right-2 h-4 aspect-square rounded-full bg-red-400 flex items-center justify-center ">
+              <span className="text-[0.7rem]">{number}</span>
+            </div>
+          )}
+          <Icon size="1.35rem" />
+        </div>
+        <span className="text-xs">{title}</span>
+      </NavLink>
+    </li>
+  );
 }
-
-export default Navbar

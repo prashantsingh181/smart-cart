@@ -22,6 +22,10 @@ const reHydrateStore = (preloadedState) => {
   }
   if (localStorage.getItem("theme") !== null) {
     themeData = localStorage.getItem("theme");
+  } else {
+    themeData = window.matchMedia("(prefers-color-scheme: dark)").matches
+      ? "dark"
+      : "light";
   }
   return {
     ...preloadedState,

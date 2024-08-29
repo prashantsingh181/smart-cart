@@ -14,7 +14,7 @@ const EmptyCart = ({ text, buttonText, onClick }) => {
   }
 
   return (
-    <div className="flex flex-col items-center gap-6">
+    <div className="flex flex-col items-center justify-center gap-6 text-primary-text bg-secondary-background h-screen">
       <div className="h-80 flex justify-center">
         <img className="max-h-full max-w-full" src={emptyBag} alt="empty bag" />
       </div>

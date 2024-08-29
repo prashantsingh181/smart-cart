@@ -24,7 +24,7 @@ const Cart = () => {
       !cartProducts.find((cartProduct) => product.id === cartProduct.id)
   );
   return (
-    <div className="centered-container bg-secondary-background p-6">
+    <div className="centered-container p-6">
       {cartProducts && cartProducts.length > 0 ? (
         <>
           <PageHeading heading="Cart" />
